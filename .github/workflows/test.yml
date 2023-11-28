@@ -3,7 +3,7 @@ name: Show Last 5 Commits
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   show-commits:
