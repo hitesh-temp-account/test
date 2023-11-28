@@ -1,3 +1,3 @@
-![Badge](https://img.shields.io/badge/version-v1.7-blue.svg)
+![Badge](https://img.shields.io/badge/version-v1.8-blue.svg)
 
 # test
