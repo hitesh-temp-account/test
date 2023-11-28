@@ -34,7 +34,7 @@ jobs:
 
       - name: check status
         run: |
-          echo "status: ${{git status}}"
+          git status
 
       - name: Create PR
         id: create-pr
