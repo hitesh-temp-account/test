@@ -3,7 +3,7 @@ name: My test workflow
 on:
   push:
     branches:
-      - master
+      - main
     paths:
       - 'gradle.properties'
 
@@ -29,18 +29,16 @@ jobs:
       - name: Update README Badge
         run: |
           version=$(grep '^version' gradle.properties | cut -d= -f2 | tr -d '[:space:]')
-          sed -i "s/\(badge\/version-v[0-9]\.[0-9]-blue\.svg\)/badge\/version-v$version-blue.svg/" README.md
-          cat README.md
-
-      - name: check status
-        run: |
-          git status
+          echo "1: $version"
+          version=$(echo "$version" | sed 's/-/%E2%80%90/g')
+          echo "2: $version"
+          sed -i "s/\(badge\/version-v.*-blue\.svg\)/badge\/version-v$version-blue.svg/" README.md
 
       - name: Create PR
         id: create-pr
         uses: peter-evans/create-pull-request@v5
         with:
-          base: master
+          base: main
           branch: github-actions/readme-update
           delete-branch: true
           author: ${{ github.actor }} <${{ github.actor }}@linkedin.com>
