@@ -52,8 +52,6 @@ jobs:
           gh pr merge --squash --auto
           --repo ${{ github.repository }}
           ${{ steps.create-pr.outputs.pull-request-number }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Delete branch
         run: |
