@@ -36,7 +36,7 @@ jobs:
         id: create-pr
         uses: peter-evans/create-pull-request@v5
         with:
-          base: main
+          base: master
           branch: github-actions/readme-update
           delete-branch: true
           author: ${{ github.actor }} <${{ github.actor }}@linkedin.com>
